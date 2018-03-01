@@ -6,23 +6,25 @@
     <button>分享</button>
   </view>
 
-  <div>
+  <scroll-view class="scroll" scroll-y="true" scroll-top="{{scrollTop}}">
   <div wx:for="{{words}}">
-    <div wx:if="{{item.sender == 'ai'}}"class="leftd">
-      <span ng-class="leftd"><img ng-src="./img/u_pic.pn" /></span>
-      <div class="speech left" ng-class="speech left">{{item.title}}</div>
+    <div wx:if="{{item.sender == 'ai'}}" class="leftd">
+      <div class="leftd" style="padding-top: 12px; margin-right: 2px"><image style="width: 36px; height: 36px;" src="../../1.jpg" /></div>
+      <div class="speech left"><rich-text>{{item.title}}</rich-text></div>
     </div>
-    <div wx:if="{{item.sender == 'user'}}"class="rightd">
-      <span ng-class="rightd"><img ng-src="./img/u_pic.pn" /></span>
-      <div class="speech right" ng-class="speech right">{{item.title}}</div>
+    <div wx:if="{{item.sender == 'user'}}" class="rightd">
+      <div class="rightd" style="padding-top: 12px; margin-left: 2px"><image
+      src="{{userInfo.avatarUrl}}" style="width: 36px; height: 36px;"></image></div>
+      <div class="speech right"><rich-text nodes="{{item.title}}"></rich-text></div>
     </div>
   </div>
-  </div>
+  </scroll-view>
 
-
- <div class = 'footer-input'>
-    <input class="input" value='{{word}}'  bindinput="userInput">{{input}}       </input>
-  </div>
-  <div class = 'footer'>
-    <button bindtap="bindViewTap">发送</button>
+  <div class="footer">
+    <div style='float:left;border: 1px solid;width:76%;'>
+      <input rows="1" style='border-radius: 5px; width: 85%;' value='{{word}}'  bindinput="userInput">{{input}}</input>
+    </div>
+    <div style="float:right;width:20%; margin-top: -8px; vertical-aligh: center;">
+      <button size="mini" bindtap="bindViewTap">发送</button>
+    </div>
   </div>
