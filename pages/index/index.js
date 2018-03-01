@@ -7,10 +7,11 @@ Page({
     word: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
+    scrollTop: 0,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     words:[
       {
-        title: '123',
+        title: '<a href="http://qq.com">是是是</a>',
         sender:'user'
       },
       {
@@ -21,6 +22,8 @@ Page({
   },
   //事件处理函数
   bindViewTap: function() {
+    if (this.data.word == '')
+      return;
     var newWord = { 
       title: this.data.word,
       sender: 'user' 
@@ -31,7 +34,8 @@ Page({
 
     this.setData({
       word: '',
-      words:this.data.words
+      words:this.data.words,
+      scrollTop: this.data.scrollTop + 200,
     })
   },
   getResponseWord: function(word) {
