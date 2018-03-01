@@ -1,6 +1,34 @@
 <!--logs.wxml-->
-<view class="container log-list">
+<!-- <view class="container log-list">
   <block wx:for="{{logs}}" wx:for-item="log">
     <text class="log-item">{{index + 1}}. {{log}}</text>
   </block>
-</view>
+</view> -->
+
+<div wx:for="{{messages}}">
+  <div wx:if="{{item.speaker == 'siri'}}"class="leftd">
+    <span ng-class="leftd"><img ng-src="./img/u_pic.pn" /></span>
+    <div class="speech left" ng-class="speech left">{{item.msg}}</div>
+  </div>
+  <div wx:if="{{item.speaker == 'i'}}"class="rightd">
+    <span ng-class="rightd"><img ng-src="./img/u_pic.pn" /></span>
+    <div class="speech right" ng-class="speech right">{{item.msg}}</div>
+  </div>
+</div>
+
+<div class="leftd">
+    <span ng-class="leftd_h">
+        <img ng-src="./img/c_pic.pn" />
+    </span>
+    <div class="speech left" ng-class="speech left"> 
+        二货，你看你傻样！
+    </div>
+</div>
+<div class="rightd">
+    <span ng-class="rightd_h">
+        <img ng-src="./img/u_pic.pn" />
+    </span>
+    <div class="speech right" ng-class="speech left"> 
+        嘻嘻嘻嘻。。。。。。
+    </div>
+</div>
