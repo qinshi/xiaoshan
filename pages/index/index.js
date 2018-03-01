@@ -4,15 +4,46 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
+    word: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    words:[
+      {
+        title: '123',
+        sender:'user'
+      },
+      {
+        title: '456',
+        sender:'ai'
+        }
+    ]
   },
   //事件处理函数
   bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+    var newWord = { 
+      title: this.data.word,
+      sender: 'user' 
+      };
+    this.data.words.push(newWord);
+    var responseWord = this.getResponseWord(this.data.word);
+    this.data.words.push(responseWord);
+
+    this.setData({
+      word: '',
+      words:this.data.words
+    })
+  },
+  getResponseWord: function(word) {
+    return {
+      title: 'response',
+      sender:'ai'
+    }
+
+  },
+  userInput: function (e) {
+    this.setData({
+      word: e.detail.value
     })
   },
   onLoad: function () {
