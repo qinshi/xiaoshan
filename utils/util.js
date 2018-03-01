@@ -14,6 +14,16 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+function ask(text, callback){
+  var url = "https://127.0.0.1/ask";
+  wx.request({
+    url: url,
+    success: callback,
+  })
+
+
+}
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  ask: ask,
 }

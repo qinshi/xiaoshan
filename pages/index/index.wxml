@@ -1,14 +1,22 @@
 <!--index.wxml-->
-<view class="container">
   <view>
     <button>对话指南</button>
   </view>  
   <view>
     <button>分享</button>
   </view>
-  <view class="myNew" wx:for="{{words}}">
-   {{item.title}}
-  </view>
+
+  <div wx:for="{{words}}">
+    <div wx:if="{{item.sender == 'ai'}}"class="leftd">
+      <span ng-class="leftd"><img ng-src="./img/u_pic.pn" /></span>
+      <div class="speech left" ng-class="speech left">{{item.title}}</div>
+    </div>
+    <div wx:if="{{item.sender == 'user'}}"class="rightd">
+      <span ng-class="rightd"><img ng-src="./img/u_pic.pn" /></span>
+      <div class="speech right" ng-class="speech right">{{item.title}}</div>
+    </div>
+  </div>
+
   <view style='border:solid'>
     <input class="input" style='border-radius: 5px' value='{{word}}'  bindinput="userInput">{{input}}</input>
   </view>
@@ -17,4 +25,3 @@
   <view>
     <button bindtap="bindViewTap">发送</button>
   </view>
-</view>
