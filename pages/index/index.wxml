@@ -6,6 +6,7 @@
     <button>分享</button>
   </view>
 
+  <div>
   <div wx:for="{{words}}">
     <div wx:if="{{item.sender == 'ai'}}"class="leftd">
       <span ng-class="leftd"><img ng-src="./img/u_pic.pn" /></span>
@@ -16,12 +17,12 @@
       <div class="speech right" ng-class="speech right">{{item.title}}</div>
     </div>
   </div>
+  </div>
 
-  <view style='border:solid'>
-    <input class="input" style='border-radius: 5px' value='{{word}}'  bindinput="userInput">{{input}}</input>
-  </view>
-  <view>
-  </view>
-  <view>
+
+ <div class = 'footer-input'>
+    <input class="input" value='{{word}}'  bindinput="userInput">{{input}}       </input>
+  </div>
+  <div class = 'footer'>
     <button bindtap="bindViewTap">发送</button>
-  </view>
+  </div>
