@@ -3,8 +3,13 @@
 const app = getApp()
 
 Page({
+  onShareAppMessage: function () {
+    return {
+      title: '问刘看山问题'
+    }
+  },
   data: {
-    word: 'Hello World',
+    word: '谢邀',
     userInfo: {},
     hasUserInfo: false,
     scrollTop: 0,
@@ -1205,11 +1210,7 @@ Page({
     },
     words:[
       {
-        title: '<a href="http://qq.com">是是是</a>',
-        sender:'user'
-      },
-      {
-        title: '456',
+        title: '我是看山，知乎全职吉祥物，你可以问我问题，或者让我跟你聊这些话题：情感/生活/段子/八卦/娱乐/游戏',
         sender:'ai'
         }
     ]

@@ -1,11 +1,4 @@
 <!--index.wxml-->
-  <view>
-    <button>对话指南</button>
-  </view>  
-  <view>
-    <button>分享</button>
-  </view>
-
   <scroll-view class="scroll" scroll-y="true" scroll-top="{{scrollTop}}">
   <div wx:for="{{words}}">
     <div wx:if="{{item.sender == 'ai'}}" class="leftd">
