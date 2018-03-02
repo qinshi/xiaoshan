@@ -1205,10 +1205,11 @@ Page({
     },
     words:[
       {
-        title: '你好',
-        content: '讲个段子',
+        title: 'wehk',
+        content: '',
         url: '',
-        sender:'ai'
+        sender:'ai',
+        parsed_content: 'sdlnfjflsajdalk',
         }
     ]
   },
@@ -1236,11 +1237,15 @@ Page({
       responseList = this.data.responseData['段子'];
     }
     var responseItem = responseList[Math.floor(Math.random() * responseList.length)];
+    var parsed_content = responseItem.title==''?'':responseItem.title + '<br>';
+    parsed_content += responseItem.content==''?'':responseItem.content + '<br>';
+    parsed_content += responseItem.url==''?'':responseItem.url;
     return {
       content: responseItem.content,
       title:responseItem.title,
       url:responseItem.url,
-      sender:'ai'
+      parsed_content: parsed_content,     
+      sender:'ai',
     }
 
   },
@@ -1276,10 +1281,6 @@ Page({
         }
       })
     }
-  },
-  parse: function(item) {
-    console.log(item);
-    return item.title + '</br>' + item.content;
   },
   getUserInfo: function(e) {
     console.log(e)
