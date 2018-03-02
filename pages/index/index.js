@@ -17,11 +17,32 @@ Page({
     responseData: {
         "谢邀": [
           {
-            "content": "我在听，你说",
-            "title": "为什么知乎上受邀回答问题的人回答之前都要先说【谢邀】？",
-            "url": "https://www.zhihu.com/question/26031681/answer/73607164"
+            "title": "为什么知乎上受邀回答问题的人回答之前都要先说【谢邀】",
+            "content": "自知乎创立到今天，最为流行的有三：谢邀、泻药和蟹妖，这三种，各自有其深意。且听我细细道来。",
+            "url": "https://www.zhihu.com/question/26031681"
           }
         ],
+        "你喜欢我吗": [
+          {
+            "title": "女生如何优雅地表达我喜欢你？",
+            "content": "我喜欢你，第一句话是假的，第二句话也是假的",
+            "url": "https://www.zhihu.com/question/26716986"
+          }
+        ],
+        "我睡不着怎么办": [
+          {
+            "title": "有哪些快速入睡的妙招？",
+            "content": "别管干什么，千万别拿起手机！",
+            "url": "https://www.zhihu.com/question/19763541"
+          }
+        ],
+        "没女朋友怎么办": [
+          {
+            "title": "单身的人如何脱单？",
+            "content": "脱单第一步，停止和错的人继续纠缠。",
+            "url": "https://www.zhihu.com/question/30779680"
+          }
+        ], 
         "段子": [
             {
                 "url": "https://www.zhihu.com/question/26593198/answer/33497376",
@@ -1217,7 +1238,7 @@ Page({
     },
     words:[
       {
-        content: '我是看山，知乎全职吉祥物，你可以问我问题，或者让我跟你聊这些话题：情感/生活/段子/八卦/娱乐/游戏',
+        content: '我是刘看山，知乎全职吉祥物，你可以问我问题，或者让我跟你聊这些话题：情感/生活/段子/八卦/娱乐/游戏',
         title: '你好',
         url: '',
         sender:'ai',
@@ -1249,9 +1270,12 @@ Page({
       responseList = this.data.responseData['段子'];
     }
     var responseItem = responseList[Math.floor(Math.random() * responseList.length)];
-    var parsed_content = responseItem.title==''?'':responseItem.title + '<br>';
-    parsed_content += responseItem.content==''?'':responseItem.content + '<br>';
+    var parsed_content = responseItem.content==''?'':responseItem.content + '<br>';
+    parsed_content += responseItem.title==''?'':'<br>' + responseItem.title + '<br>';
     parsed_content += responseItem.url==''?'':responseItem.url;
+    if (responseItem.parsed_content) {
+      parsed_content = responseItem.parsed_content
+    }
     return {
       content: responseItem.content,
       title:responseItem.title,
