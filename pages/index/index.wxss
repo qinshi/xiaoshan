@@ -132,7 +132,7 @@ div .left:after {
 .leftd {
  clear: both;
  float: left;
- margin-left: 10px;
+ margin-left: 2px;
 }
 .rightd {
  clear: both;
@@ -169,16 +169,16 @@ div .left:after {
  height: auto;
 }
 
-.footer{
-  position:absolute;
-  bottom:0;
-  width:100%;
-  margin-bottom: 10px;
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   z-index: 2;
   background-color: white;
+  margin-left: 1px;
 }
 
-.scroll{
-  height: 1200rpx;
+.scroll {
+  max-height: 1100rpx;
   border: 0px solid #f00;
 } 
