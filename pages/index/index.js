@@ -15,6 +15,13 @@ Page({
     scrollTop: 0,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     responseData: {
+        "谢邀": [
+          {
+            "content": "我在听，你说",
+            "title": "为什么知乎上受邀回答问题的人回答之前都要先说【谢邀】？",
+            "url": "https://www.zhihu.com/question/26031681/answer/73607164"
+          }
+        ],
         "段子": [
             {
                 "url": "https://www.zhihu.com/question/26593198/answer/33497376",
@@ -1210,7 +1217,9 @@ Page({
     },
     words:[
       {
-        title: '我是看山，知乎全职吉祥物，你可以问我问题，或者让我跟你聊这些话题：情感/生活/段子/八卦/娱乐/游戏',
+        content: '我是看山，知乎全职吉祥物，你可以问我问题，或者让我跟你聊这些话题：情感/生活/段子/八卦/娱乐/游戏',
+        title: '你好',
+        url: '',
         sender:'ai'
         }
     ]
@@ -1230,7 +1239,7 @@ Page({
     this.setData({
       word: '',
       words:this.data.words,
-      scrollTop: this.data.scrollTop + 200,
+      scrollTop: this.data.scrollTop + 500,
     })
   },
   getResponseWord: function(word) {
@@ -1279,6 +1288,10 @@ Page({
         }
       })
     }
+  },
+  parse: function(item) {
+    console.log(item);
+    return item.title + '</br>' + item.content;
   },
   getUserInfo: function(e) {
     console.log(e)
