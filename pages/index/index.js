@@ -3,13 +3,25 @@
 const app = getApp()
 
 Page({
+  onShareAppMessage: function () {
+    return {
+      title: '问刘看山问题'
+    }
+  },
   data: {
-    word: 'Hello World',
+    word: '谢邀',
     userInfo: {},
     hasUserInfo: false,
     scrollTop: 0,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     responseData: {
+        "谢邀": [
+          {
+            "content": "我在听，你说",
+            "title": "为什么知乎上受邀回答问题的人回答之前都要先说【谢邀】？",
+            "url": "https://www.zhihu.com/question/26031681/answer/73607164"
+          }
+        ],
         "段子": [
             {
                 "url": "https://www.zhihu.com/question/26593198/answer/33497376",
@@ -1205,11 +1217,11 @@ Page({
     },
     words:[
       {
-        title: 'wehk',
-        content: '',
+        content: '我是看山，知乎全职吉祥物，你可以问我问题，或者让我跟你聊这些话题：情感/生活/段子/八卦/娱乐/游戏',
+        title: '你好',
         url: '',
         sender:'ai',
-        parsed_content: 'sdlnfjflsajdalk',
+        parsed_content: '我是看山，知乎全职吉祥物，你可以问我问题，或者让我跟你聊这些话题：情感/生活/段子/八卦/娱乐/游戏',
         }
     ]
   },
