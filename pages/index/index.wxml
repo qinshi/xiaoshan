@@ -3,7 +3,7 @@
   <div wx:for="{{words}}">
     <div wx:if="{{item.sender == 'ai'}}" class="leftd">
       <div class="leftd" style="padding-top: 12px; margin-right: 2px"><image style="width: 36px; height: 36px;" src="../../1.jpg" /></div>
-      <div class="speech left"><rich-text nodes="{{item.title+'<br>'+item.content+'<br>'+item.url}}"></rich-text></div>
+      <div class="speech left"><rich-text nodes="{{item.parsed_content}}"></rich-text></div>
     </div>
     <div wx:if="{{item.sender == 'user'}}" class="rightd">
       <div class="rightd" style="padding-top: 12px; margin-left: 2px"><image

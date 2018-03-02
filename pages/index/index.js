@@ -1220,7 +1220,8 @@ Page({
         content: '我是看山，知乎全职吉祥物，你可以问我问题，或者让我跟你聊这些话题：情感/生活/段子/八卦/娱乐/游戏',
         title: '你好',
         url: '',
-        sender:'ai'
+        sender:'ai',
+        parsed_content: '我是看山，知乎全职吉祥物，你可以问我问题，或者让我跟你聊这些话题：情感/生活/段子/八卦/娱乐/游戏',
         }
     ]
   },
@@ -1248,11 +1249,15 @@ Page({
       responseList = this.data.responseData['段子'];
     }
     var responseItem = responseList[Math.floor(Math.random() * responseList.length)];
+    var parsed_content = responseItem.title==''?'':responseItem.title + '<br>';
+    parsed_content += responseItem.content==''?'':responseItem.content + '<br>';
+    parsed_content += responseItem.url==''?'':responseItem.url;
     return {
       content: responseItem.content,
       title:responseItem.title,
       url:responseItem.url,
-      sender:'ai'
+      parsed_content: parsed_content,     
+      sender:'ai',
     }
 
   },
@@ -1288,10 +1293,6 @@ Page({
         }
       })
     }
-  },
-  parse: function(item) {
-    console.log(item);
-    return item.title + '</br>' + item.content;
   },
   getUserInfo: function(e) {
     console.log(e)
