@@ -1205,11 +1205,9 @@ Page({
     },
     words:[
       {
-        title: '<a href="http://qq.com">是是是</a>',
-        sender:'user'
-      },
-      {
-        title: '456',
+        title: '你好',
+        content: '讲个段子',
+        url: '',
         sender:'ai'
         }
     ]
@@ -1229,7 +1227,7 @@ Page({
     this.setData({
       word: '',
       words:this.data.words,
-      scrollTop: this.data.scrollTop + 200,
+      scrollTop: this.data.scrollTop + 500,
     })
   },
   getResponseWord: function(word) {
@@ -1278,6 +1276,10 @@ Page({
         }
       })
     }
+  },
+  parse: function(item) {
+    console.log(item);
+    return item.title + '</br>' + item.content;
   },
   getUserInfo: function(e) {
     console.log(e)
